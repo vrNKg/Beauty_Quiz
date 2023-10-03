@@ -1,0 +1,41 @@
+{
+  "name": "beauty_quiz",
+  "version": "1.0.0",
+  "description": "aptitude test",
+  "main": "index.js",
+  "browserslist": [
+    "> 1%",
+    "not dead"
+  ],
+  "scripts": {
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "live": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vrNKg/Beauty_Quiz.git"
+  },
+  "keywords": [
+    "js",
+    "javascript"
+  ],
+  "author": "Veronika <veronika.gamalia@mail.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vrNKg/Beauty_Quiz/issues"
+  },
+  "homepage": "https://github.com/vrNKg/Beauty_Quiz#readme",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss-loader": "^7.3.3"
+  }
+}
