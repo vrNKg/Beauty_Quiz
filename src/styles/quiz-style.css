@@ -1,0 +1,105 @@
+.skin-test__wrapper {
+    position: relative;
+    background-color: #DDF3FF;
+    padding: 35px 0 0 35px;
+    border-radius: 10px;
+    width: 60%;
+    height: 432px;
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+    .skin-test__wrapper {
+        width: 70%;
+    }
+}
+@media (min-width: 782px) and (max-width: 991px) {
+    .skin-test__wrapper {
+        width: 100%;
+    }
+}
+@media (min-width: 480px) and (max-width: 782px) {
+    .skin-test__wrapper {
+        padding: 25px 0 25px 25px;
+        width: 100%;
+    }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+    .skin-test__wrapper {
+        padding: 20px ;
+        width: 100%;
+    }
+}
+.skin-test__progress-wrapper {
+    margin-bottom: 25px;
+}
+@media (min-width: 480px) and (max-width: 782px) {
+    .skin-test__progress-wrapper {
+        margin-bottom: 20px;
+    }
+}
+@media (min-width: 320px) and (max-width: 479px) {
+    .skin-test__progress-wrapper {
+        margin-bottom: 15px;
+    }
+}
+.skin-test__progress {
+    display: flex;
+    gap: 10px;
+}
+.skin-test__progress-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #89D1F8;
+    border-radius: 25px;
+}
+.skin-test__progress-dot.active {
+    background-color: #00A5FF;
+}
+.skin-test__progress-digit {
+    font: 15px 'Inter', sans-serif;
+    color: #9A9A9A;
+    margin-top: 15px;
+}
+.test-form__wrapper {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+.test-form__question {
+    font: bold 20px 'Inter', sans-serif;
+    margin-bottom: 20px;
+}
+.test-form__answer {
+    display: block;
+	cursor: pointer;
+    font: 15px 'Inter', sans-serif;
+    padding-bottom: 15px;
+}
+.test-form__answer:hover:before {
+	filter: brightness(150%);
+}
+input[type=radio] {
+    position: relative;
+    top: 2px;
+    width: 15px;
+    height: 15px;
+    margin: 0 10px 0 0;
+}
+.test-form__button-wrapper {
+    position: absolute;
+    bottom: 60px;
+}
+.test-form__submit-button,
+.test-form__previous-button {
+    cursor: pointer;
+    background-color: #00A5FF;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font: bold 15px 'Inter', sans-serif;
+    color: #FFFF;
+}
+.test-form__previous-button {
+    background-color: #FFFF;
+    color: #000;
+    margin-right: 10px;
+}

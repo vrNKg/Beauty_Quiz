@@ -1,5 +1,4 @@
-import {main, skinTest} from './quiz.main'
-// SECTION SKIN_TEST_Result
+import {main, skinTest, fieldset} from './quiz.main'
 let testResult = document.createElement('section');
 testResult.className = 'test-result';
 let pageSlider = document.createElement('p');
@@ -8,12 +7,18 @@ pageSlider.innerHTML = '1 2 3 ... 13';
 
 function onShowResult(e) {
   e.preventDefault()
-  skinTest.style.display = 'none';
-  main.appendChild(testResult);
-  let headerTitle = document.querySelector('.header__title');
-  headerTitle.innerHTML = 'Результат';
-  let headerSubtitle = document.querySelector('.header__subtitle');
-  headerSubtitle.innerHTML = 'Мы подобрали для вас наиболее подходящие средства';
+  const checkAnswer = fieldset.querySelector('input[type="radio"]:checked');
+  if (checkAnswer) {
+    skinTest.style.display = 'none';
+    main.appendChild(testResult);
+    let headerTitle = document.querySelector('.header__title');
+    headerTitle.innerHTML = 'Результат';
+    let headerSubtitle = document.querySelector('.header__subtitle');
+    headerSubtitle.innerHTML = 'Мы подобрали для вас наиболее подходящие средства';
+  } else {
+      alert('Выберите ответ');
+  };
+  
 };
 async function getResult() {
   try {
@@ -43,7 +48,7 @@ getResult().then(products => {
       picture.className = 'product-card__image';
       const favorite = document.createElement('img');
       favorite.style.width = '28px';
-      favorite.style.height = '25px';
+      favorite.style.height = '25px'; 
       favorite.src = '../src/assets/images/favorite.svg';
       favorite.className = 'product-card__favorite';
       const info = document.createElement('div');

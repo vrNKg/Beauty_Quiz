@@ -9,49 +9,40 @@ let currentPage = 1;
 let questionIndex = 0;
 let answerStorage = new Map();
 
-
 const main = document.querySelector('.main');
-// SECTION SKIN_TEST
 let skinTest = document.createElement('section');
 skinTest.className = 'skin-test';
 main.appendChild(skinTest);
-// SKIN_TEST__WRAPPER
 let skinTestWrapper = document.createElement('div');
 skinTestWrapper.className = 'skin-test__wrapper';
 skinTest.appendChild(skinTestWrapper);
-// PROGRESS WRAPPER
 let progressWrapper = document.createElement('div');
 progressWrapper.className = 'skin-test__progress-wrapper';
 skinTestWrapper.appendChild(progressWrapper);
-// DOTS
 let progress = document.createElement('div');
 progress.className = 'skin-test__progress';
 progressWrapper.appendChild(progress);
 for (let i=1; i<4; i++) {
     let dot = document.createElement('div');
-    dot.className = 'skin-test__progress_dot';
+    dot.className = 'skin-test__progress-dot';
     dot.dataset.progress = `${i}`;
     if (i == currentPage) {
         dot.classList.toggle('active');
     };
     progress.append(dot);
 };
-// PAGES
 let pageCounter = document.createElement('div');
-pageCounter.className = 'skin-test__progress_digit';
+pageCounter.className = 'skin-test__progress-digit';
 pageCounter.innerHTML = `Вопрос ${currentPage} из 3`;
 progressWrapper.appendChild(pageCounter);
-// FORM
 let form = document.createElement('form');
+form.className = 'test-form';
 skinTestWrapper.appendChild(form);
-// FIELDSET
 let fieldset = document.createElement('fieldset');
-fieldset.className = 'skin-test__field';
+fieldset.className = 'test-form__wrapper';
 form.appendChild(fieldset);
-// LEGEND
 let legend = document.createElement('legend');
-legend.className = 'skin-test__question';
-// SECTION SKIN_TEST
+legend.className = 'test-form__question';
 let testResult = document.createElement('section');
 testResult.className = 'test-result';
 
@@ -63,7 +54,7 @@ function clearQuestion() {
 
 function onPageChange() {
     pageCounter.innerHTML = `Вопрос ${currentPage} из 3`;
-    let dots = document.querySelectorAll('.skin-test__progress_dot');
+    let dots = document.querySelectorAll('.skin-test__progress-dot');
     dots.forEach((activeDot) => {
         if (activeDot.dataset.progress == currentPage) {
             activeDot.classList.toggle('active');
@@ -75,31 +66,32 @@ function onPageChange() {
 
 function createAnswers() {
     quiz[questionIndex].answers.forEach((answer) => {
-        let lable = document.createElement('label');
+        let label = document.createElement('label');
         let input = document.createElement('input');
+        label.className = 'test-form__answer';
         input.type = 'radio';
         input.name = 'answer';
         input.value = answer;
-        lable.append(input, answer);
+        label.append(input, answer);
         if (answer === answerStorage.get(questionIndex)) {
             input.checked = true;
         };
-        fieldset.appendChild(lable);
+        fieldset.appendChild(label);
     });
 };
 
 function createButtons() {
     let buttonWrapper = document.createElement('div')
-    buttonWrapper.className = 'button-wrapper'
+    buttonWrapper.className = 'test-form__button-wrapper'
     fieldset.appendChild(buttonWrapper);
 
     quiz[questionIndex].button.forEach((buttonText) => {
         let button = document.createElement('button');
         button.append(buttonText);
         if (buttonText === 'Назад') {
-            button.className = 'previous-button';
+            button.className = 'test-form__previous-button';
         } else {
-            button.className = 'submit-button';
+            button.className = 'test-form__submit-button';
         };
         buttonWrapper.appendChild(button);
         button.onclick = getOnClickAction(buttonText);
@@ -149,4 +141,4 @@ function getOnClickAction(buttonText) {
     }
 };
 
-export {main, skinTest, showQuestion}
+export {main, skinTest, showQuestion, fieldset}
